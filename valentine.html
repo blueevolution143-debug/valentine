@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a001a, #000);
+  color: white;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Floating Hearts */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0.7; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* Start Screen */
+.start-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.9);
+  z-index: 10;
+  transition: opacity 1s ease;
+}
+
+.start-screen h1 {
+  font-size: 3em;
+  margin-bottom: 30px;
+  text-align: center;
+  background: linear-gradient(90deg, #ff4da6, #ff1a75);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.start-btn {
+  padding: 15px 40px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(45deg, #ff1a75, #ff4da6);
+  box-shadow: 0 0 20px #ff1a75;
+  transition: 0.4s;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px #ff1a75; }
+  to { box-shadow: 0 0 35px #ff4da6; }
+}
+
+.start-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  transform: scale(0.95);
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Phone-style image frame */
+.phone-frame {
+  padding: 15px;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #ff4da6, #ff1a75);
+  box-shadow: 0 0 40px rgba(255, 20, 147, 0.7);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.slide img {
+  max-width: 90%;
+  max-height: 65vh;
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+}
+
+.slide.active img {
+  transform: scale(1.05);
+}
+
+.slide h2 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  color: #ff4da6;
+}
+
+.slide p {
+  max-width: 600px;
+  font-size: 18px;
+}
+
+/* Navigation */
+.nav {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav button {
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: #ff1a75;
+  color: white;
+  transition: 0.3s;
+}
+
+.nav button:hover {
+  background: #ff4da6;
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<script>
+for(let i=0;i<25;i++){
+  let heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"%";
+  heart.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(heart);
+}
+</script>
+
+<!-- Start Screen -->
+<div class="start-screen" id="startScreen">
+  <h1>Happy Valentine's Day ❤️</h1>
+  <button class="start-btn" onclick="startSlider()">Start Our Journey</button>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Slider -->
+<div class="slider" id="slider">
+
+  <!-- Month Slides -->
+  <div class="slide active">
+    <div class="phone-frame"><img src="hehehehe/1.jpg"></div>
+    <h2>Month 1 💖</h2>
+    <p>この頃はまだお互いちょっと恥ずかしかったよね、へへへ。あなたから返信が来るたびに、ドキドキしてたんだ。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/2.jpg"></div>
+    <h2>Month 2 💕</h2>
+    <p>まだ少し照れてたけど、だんだんお互いに慣れてきたよね。夜遅くまでの通話が、私にとって特別な時間になっていった。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/3.jpg"></div>
+    <h2>Month 3 💞</h2>
+    <p>この頃には、もうただのゲームじゃないって気づいてた。Robloxで出会ったのに、それがこんなに素敵なご縁になるなんて。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/4.jpg"></div>
+    <h2>Month 4 🌹</h2>
+    <p>一緒にたくさん笑って、からかい合って、もっと素直になれたよね。あなたはもう、私の日常の一部になってた。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/5.jpg"></div>
+    <h2>Month 5 ❤️</h2>
+    <p>離れているのに、こんなに近く感じるなんて不思議だよね。あなたのおかげで、距離なんて小さく感じた。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/6.jpg"></div>
+    <h2>Month 6 💘</h2>
+    <p>もう半年だね…。好きという気持ち以上に、あなたを大切に想っていると気づいた。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/7.jpg"></div>
+    <h2>Month 7 💓</h2>
+    <p>小さなすれ違いもあったけど、それでもお互いを選び続けたよね。その時、この関係は本物だって思った。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/8.jpg"></div>
+    <h2>Month 8 💗</h2>
+    <p>あなたの声を聞く時間が、毎日の一番の楽しみになった。その声だけで、全部が少し優しくなるんだ。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/9.jpg"></div>
+    <h2>Month 9 💝</h2>
+    <p>9ヶ月経っても、まだドキドキするよ。出会った日のように、今でも笑顔にしてくれる。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/10.jpg"></div>
+    <h2>Month 10 💟</h2>
+    <p>遠く離れていても、一緒に成長してきたよね。もうあなたのいない毎日なんて想像できない。</p>
+  </div>
+
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/11.jpg"></div>
+    <h2>Month 11 💍</h2>
+    <p>11ヶ月…。Robloxでの出会いが、こんなに大切な存在になるなんて。どんなに距離があっても、この気持ちは本物だよ。そして、いつか本当に会える日を心から楽しみにしてる。❤️</p>
+  </div>
+
+  <!-- Final Special Slide -->
+  <div class="slide">
+    <div class="phone-frame"><img src="hehehehe/12.jpg"></div>
+    <h2>I LOVE YOU BEBEBEBEBE 💖</h2>
+    <p>11ヶ月のすべての思い出、笑い、そしてドキドキ…  
+    私のすべての気持ちはあなたのために。  
+    愛してる、これからもずっと。  
+    11ヶ月間ありがとう💘</p>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+</div>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function startSlider(){
+  document.getElementById("startScreen").style.opacity="0";
+  setTimeout(()=>{
+    document.getElementById("startScreen").style.display="none";
+    document.getElementById("slider").style.display="block";
+  },1000);
+  document.getElementById("bgMusic").play();
+}
+
+function showSlide(index){
+  slides.forEach(slide=>slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+function nextSlide(){
+  if(current < slides.length-1){
+    current++;
+    showSlide(current);
+  }
+}
+
+function prevSlide(){
+  if(current > 0){
+    current--;
+    showSlide(current);
+  }
+}
+</script>
+
+</body>
+</html>
